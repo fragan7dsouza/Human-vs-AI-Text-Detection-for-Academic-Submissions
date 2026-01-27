@@ -29,3 +29,4 @@ model.fit(X_train, y_train)
 
 joblib.dump(model, 'detector_model.pkl')
 joblib.dump(tfidf, 'vectorizer.pkl')
+
