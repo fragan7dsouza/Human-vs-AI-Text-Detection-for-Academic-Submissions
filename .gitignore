@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# backend data and models
+backend/*.csv
+backend/*.pkl
+backend/__pycache__/
