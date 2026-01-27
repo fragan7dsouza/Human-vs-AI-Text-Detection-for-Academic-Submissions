@@ -1,73 +1,134 @@
-# Welcome to your Lovable project
+# 🛡️ **Human vs AI Academic Text Detector**
 
-## Project info
+An advanced machine learning system designed to classify academic text as either **Human-written** or **AI-generated**. The project uses a **Logistic Regression** model trained on a massive dataset of ~500k rows to identify linguistic patterns, word frequencies, and structural nuances.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Built with **Python**, **Flask**, and a modern **React + Tailwind** frontend.
 
-## How can I edit this code?
+🔥 **Features**
 
-There are several ways of editing your application.
+* **Real-time ML Analysis:** Instant classification of text using a trained backend model.
+* **Probabilistic Results:** Provides a confidence percentage for every verdict.
+* **Massive Dataset Training:** Model trained on ~500k rows of balanced human and AI text.
+* **Clean & Responsive UI:** Built with ShadCN components for a professional academic feel.
+* **Fully Local Processing:** Privacy-focused analysis with no data leaving your local server.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🚀 **Tech Stack**
 
-Changes made via Lovable will be committed automatically to this repo.
+### **Backend**
 
-**Use your preferred IDE**
+* Python 3.10+
+* Flask (REST API)
+* Scikit-Learn (Logistic Regression + TF-IDF)
+* Pandas (Data processing)
+* Joblib (Model serialization)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### **Frontend**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* React 18 (Vite)
+* TypeScript
+* Tailwind CSS
+* Lucide React (Icons)
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📦 **Project Structure**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
+Human-vs-AI-Text-Detection/
+│
+├── backend/                # python ml backend
+│   ├── app.py              # flask api server
+│   ├── train_model.py      # model training script
+│   ├── AI_Human.csv        # kaggle dataset (ignored by git)
+│   ├── detector_model.pkl  # trained ml model
+│   └── vectorizer.pkl      # tf-idf vectorizer
+│
+├── src/                    # react frontend source
+│   ├── components/
+│   │   └── TextAnalyzer.tsx # main detection interface
+│   └── pages/
+│       └── Index.tsx        # landing page
+│
+├── index.html              # entry point
+├── package.json            # frontend dependencies
+└── tsconfig.json           # typescript configuration
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🧠 **Model Training**
 
-**Use GitHub Codespaces**
+The model utilizes **TF-IDF Vectorization** with an `ngram_range` of (1, 2) to capture both individual words and common phrasing patterns.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+To train the model:
 
-## What technologies are used for this project?
+```bash
+cd backend
+python train_model.py
 
-This project is built with:
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The script performs class balancing (undersampling) to ensure the detector does not have a statistical bias toward "AI" results.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🔥 **Running the Backend**
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+cd backend
+python app.py
 
-Yes, you can!
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The Flask server will run on `http://127.0.0.1:5000` and handle POST requests at the `/analyze` endpoint.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## 🎨 **Running the Frontend**
+
+```bash
+# from the root directory
+npm install
+npm run dev
+
+```
+
+The frontend will be available at `http://localhost:8080` (or the port specified by Vite).
+
+---
+
+## 🖼️ **Features Overview**
+
+### ✔ Text Analysis
+
+Paste any academic text (minimum 10 words) into the analyzer. The backend transforms the text into numerical vectors and runs it through the Logistic Regression model.
+
+### ✔ Dynamic Verdicts
+
+The UI updates instantly to show "Likely Human-Written" or "Likely AI-Generated" based on the model's prediction.
+
+### ✔ Confidence Meter
+
+A visual progress bar displays the model's confidence level (0-100%) in its current verdict.
+
+---
+
+## 👨‍💻 Author
+
+**Fragan Dsouza**
+
+📎 [LinkedIn](https://linkedin.com/in/fragan-dsouza) 
+
+
+
+
+💻 [GitHub](https://github.com/fragan7dsouza)
+
+---
+
+## 📜 License
+
+This project is open-source under the **MIT License**.
