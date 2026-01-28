@@ -14,7 +14,7 @@ export function TextAnalyzer() {
 
   const handleAnalyze = async () => {
     if (!text.trim()) {
-      setError("please enter text to analyze.");
+      setError("Please enter text to analyze.");
       setResult(null);
       return;
     }
@@ -37,7 +37,7 @@ export function TextAnalyzer() {
       const data = await response.json();
       setResult(data);
     } catch (err) {
-      setError("failed to connect to the ml server. make sure app.py is running.");
+      setError("Failed to connect to the ml server. Make sure app.py is running.");
     } finally {
       setIsAnalyzing(false);
     }
@@ -53,7 +53,7 @@ export function TextAnalyzer() {
               setText(e.target.value);
               setError(null);
             }}
-            placeholder="paste the text you want to analyze here…"
+            placeholder="Type or Paste the text you want to analyze here…"
             className="w-full h-48 md:h-56 bg-input border border-border rounded-md p-4 text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-1 focus:ring-ring transition-colors text-sm md:text-base"
           />
 
@@ -72,7 +72,7 @@ export function TextAnalyzer() {
                 analyzing…
               </>
             ) : (
-              "analyze text"
+              "ANALYZE"
             )}
           </button>
         </div>

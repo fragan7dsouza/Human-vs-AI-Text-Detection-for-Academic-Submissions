@@ -22,6 +22,9 @@ const Index = () => {
           <p className="text-muted-foreground text-xs">
             Results are probabilistic and should be used as one factor among many.
           </p>
+          <p className="text-muted-foreground text-xs">
+            © 2026 Fragan D'Souza. All rights reserved.
+          </p>
         </footer>
       </div>
     </div>
